@@ -208,6 +208,16 @@ function create_form_page()
     wp_insert_post($page);
 }
 
+
+function create_output_folder() {
+    $carpeta = WP_CONTENT_DIR . '/outputs';
+
+    if (!file_exists($carpeta)) {
+        wp_mkdir_p($carpeta);
+    }
+}
+
+
 function resetearoptions()
 {
     delete_option('appKey_MDF');
@@ -235,6 +245,8 @@ function delete_form_page()
 
 register_activation_hook(__FILE__, 'create_form_page');
 register_activation_hook(__FILE__, 'resetearoptions');
+register_activation_hook(__FILE__, 'create_output_folder');
+
 register_deactivation_hook(__FILE__, 'delete_form_page');
 
 

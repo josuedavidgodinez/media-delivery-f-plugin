@@ -75,7 +75,7 @@ function generateInvoicePDF($BrandName, $Name, $BankAccount, $ClientsName, $Even
         error_log("Generating invoice final");
 
         $nombreArchivo = "$Name-$Service-$EventDate-invoice.pdf";
-        $archivoPDF = ABSPATH . "outputs/$nombreArchivo";
+        $archivoPDF = WP_CONTENT_DIR . "/outputs/$nombreArchivo";
         error_log($archivoPDF);
 
 

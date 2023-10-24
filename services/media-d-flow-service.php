@@ -1,6 +1,5 @@
 <?php
 $path = __DIR__ . '/..';
-require_once $path . "/services/box-service.php";
 require_once $path . "/services/pdf-service.php";
 require_once $path . "/services/drop-box-service.php";
 require_once $path . "/services/send-mail-service.php";
