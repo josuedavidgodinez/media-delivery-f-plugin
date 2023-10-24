@@ -1,10 +1,6 @@
 <?php
 
 
-/**
- * Funcion que obtiene la informacion de un 
- * producto
- */
 function wp_SendMail_MDF($recipient_email,$subject, $email_message)
 {
   

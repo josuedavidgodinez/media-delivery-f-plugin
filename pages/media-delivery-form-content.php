@@ -62,6 +62,16 @@
                     </div>
 
                     <div class="form-group mb-2">
+                        <label class="form-label" for="role">What is your role?</label>
+                        <select class="form-select" id="role" name="role" required>
+                            <option value="lp">Lead photographer</option>
+                            <option value="sp">2nd photographer</option>
+                            <option value="lv">Lead videographer</option>
+                            <option value="sv">2nd videographer</option>
+                        </select>
+                    </div>
+                    contractor role
+                    <div class="form-group mb-2">
                         <label class="form-label" for="raw-media">How many RAW media files are you uploading?</label>
                         <input type="number" class="form-control" id="raw-media" name="raw-media" required>
                     </div>
@@ -110,7 +120,7 @@
                     <div class="form-group mb-2">
                         <label class="form-label" for="wedding-session-hours">What was the package coverage
                             duration?</label>
-                        <input type="number" class="form-control" id="wedding-session-hours" name="wedding-session-hours"
+                        <input type="number" class="form-control" id="wedding-session-hours" name="wedding-session-hours" step="0.5" 
                             required>
                     </div>
                     <div class="form-group mb-2 videographer-settings audio-settings">

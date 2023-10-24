@@ -3,6 +3,7 @@ $path = __DIR__ . '/..';
 require_once $path . "/services/pdf-service.php";
 require_once $path . "/services/drop-box-service.php";
 require_once $path . "/services/send-mail-service.php";
+require_once $path . "/services/file-service.php";
 
 require_once $path . "/env/constant-env-v.php";
 
@@ -28,7 +29,7 @@ function media_delivery_flow()
         $weddingSessionHours = $_POST['wedding-session-hours'];
         $requestedAudio = $_POST['requested-audio'];
         $drone = $_POST['drone'];
-        //$travelFee = $_POST['travel-fee'];
+        $role = $_POST['role'];
         $travelFeeAmount = $_POST['travel-fee-amount'];
         error_log('travelFeeAmount: ' . $travelFeeAmount);
 
@@ -63,7 +64,7 @@ function media_delivery_flow()
         $audio_video_fee = $audioamount + $droneamount;
         error_log($audio_video_fee);
 
-        $total = totalCalculations($weddingSessionHours);
+        $total = totalCalculations($weddingSessionHours,$role);
         error_log($total);
         error_log('travelFeeAmount: ' . $travelFeeAmount);
 
@@ -82,6 +83,7 @@ function media_delivery_flow()
             return wp_send_json_error($resp_flow);
         }
 
+        deleteFile($invoice_server_resp->archivoPDF);
 
         $namefile = $_FILES['media-backup']['name'];
         $extension = pathinfo($namefile, PATHINFO_EXTENSION);
@@ -110,9 +112,15 @@ function media_delivery_flow()
 
 }
 
-function totalCalculations($hours)
+function totalCalculations($hours,$role)
 {
-    return $hours * Constants::$LeadRate_MDF;
+    if($role == 'lp' || $role == 'lv'){
+        return $hours * Constants::$LeadRate_MDF;
+    }else if($role == 'sp' || $role == 'sv'){
+        return $hours * Constants::$SecondRate_MDF;
+    }else{
+        return 0;
+    }
 
 }
 
