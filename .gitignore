@@ -1,0 +1,24 @@
+# Ignore vendor/ directory
+/vendor/
+
+# Ignore Composer lock file
+composer.lock
+
+# Ignore any log files
+*.log
+
+# Ignore environment-specific configuration files
+.env
+.phpstorm.meta.php
+
+# Ignore system and temporary files
+Thumbs.db
+.DS_Store
+
+# Ignore PHPStorm IDE files
+.idea/
+
+# Ignore user-specific files
+*.swp
+*.swo
+*.swn

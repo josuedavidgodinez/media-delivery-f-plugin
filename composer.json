@@ -1,0 +1,12 @@
+{
+    "require": {
+        "tecnickcom/tcpdf": "^6.6",
+        "spatie/dropbox-api": "1.21.1",
+        "kunalvarma05/dropbox-php-sdk": "^0.4.2"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.3"
+        }
+    }
+}
