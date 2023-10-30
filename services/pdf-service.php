@@ -33,7 +33,7 @@ function generateInvoicePDF($BrandName, $Name, $BankAccount, $ClientsName, $Even
         // Agregar el encabezado en fondo rojo
         $pdf->SetFillColor(255, 0, 0);
         $pdf->SetFont('helvetica', 'B', 14);
-        $pdf->Cell(285, 10, 'DO NOT EDIT THIS PAGE. DOWNLOAD YOUR OWN COPY', 0, 1, 'C', 1);
+        $pdf->Cell(285, 10, '', 0, 1, 'C', 1);
 
         // Agregar la tabla con columnas
         $pdf->SetFont('helvetica', 'B', 10);

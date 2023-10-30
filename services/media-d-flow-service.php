@@ -63,9 +63,10 @@ function media_delivery_flow()
 
 
 
-        $total = totalCalculations($weddingSessionHours,$role);
+        $totalHours = totalCalculations($weddingSessionHours,$role);
+        $total = $totalHours + $droneamount + $audioamount + $travelFeeAmount;
         error_log($total);
-        error_log('travelFeeAmount: ' . $travelFeeAmount);
+        error_log('total: ' . $total);
 
         $invoice_server_resp = generateInvoicePDF(Constants::$brandName_MDF, $yourName, $payment, $clientNames, $weddingSession, $mediaDelivered, $weddingSessionDate, $weddingSessionHours, $audioamount, $travelFeeAmount, $total, $rawMedia, $specificShots, $specialRequests, $videographerSong, $requestedAudio, $experience, $comments, $startEndTimes,$droneamount);
 
