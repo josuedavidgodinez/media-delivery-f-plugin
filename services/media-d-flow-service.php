@@ -30,7 +30,11 @@ function media_delivery_flow()
         $requestedAudio = $_POST['requested-audio'];
         $drone = $_POST['drone'];
         $role = $_POST['role'];
-        $travelFeeAmount = $_POST['travel-fee-amount'];
+
+        $travelFeeAmount = 0;
+        if(isset($_POST['travel-fee-amount'])){
+            $travelFeeAmount = $_POST['travel-fee-amount'];
+        }
         error_log('travelFeeAmount: ' . $travelFeeAmount);
 
         $startEndTimes = $_POST['start-end-times'];
@@ -45,7 +49,7 @@ function media_delivery_flow()
         $resp_create_fR = createFileRequest($folder_name);
 
         if (is_null($resp_create_fR)) {
-            $resp_flow->message = "Error for create file REQUEST";
+            $resp_flow->message = "An error was generated when creating your dropbox link for the files request.";
             return wp_send_json_error($resp_flow);
         }
 
@@ -72,14 +76,14 @@ function media_delivery_flow()
 
 
         if (is_null($invoice_server_resp->archivoPDF)) {
-            $resp_flow->message = "Error for create PDF file";
+            $resp_flow->message = "An error was generated when creating the PDF file of the invoice.";
             return wp_send_json_error($resp_flow);
         }
 
 
         $status = uploadInvoiceFileRequest($invoice_server_resp->archivoPDF, $folder_name . "/" . $invoice_server_resp->nombreArchivo);
         if ($status != 0) {
-            $resp_flow->message = "Error for upload Invoice file";
+            $resp_flow->message = "An error was generated when uploading the invoice file to the dropbox server.";
             return wp_send_json_error($resp_flow);
         }
 
@@ -90,13 +94,13 @@ function media_delivery_flow()
         $namefiledrpbox = "$yourName-$mediaDelivered-$weddingSessionDate-backup.$extension";
         $statusBackUp = uploadInvoiceFileRequest($mediaBackup, $folder_name . "/" . $namefiledrpbox);
         if ($statusBackUp != 0) {
-            $resp_flow->message = "Error for upload backup file";
+            $resp_flow->message = "An error was generated when uploading the backup screenshot to the dropbox server.";
             return wp_send_json_error($resp_flow);
         }
 
         $wp_mail_result = wp_SendMail_MDF($yourMail, 'Media delivery link', "We're attaching your link to upload the event files: " . $resp_create_fR->url);
         if (!$wp_mail_result) {
-            $resp_flow->message = "Error for send mail";
+            $resp_flow->message = "An error was generated when sending the mail with your link.";
             return wp_send_json_error($resp_flow);
         }
 

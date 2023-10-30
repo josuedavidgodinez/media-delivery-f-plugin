@@ -131,7 +131,7 @@
 
                     <div class="form-group mb-2 videographer-settings">
                         <label class="form-label" for="drone">Does the package include drone coverage?</label>
-                        <select class="form-select" id="drone" name="drone" required>
+                        <select class="form-select" id="drone" name="drone">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="col-6" id="who-container">
                                 <label class="form-label" for="who">Who?</label>
-                                <input type="text" class="form-control" id="who" name="who" required>
+                                <input type="text" class="form-control" id="who" name="who" >
                             </div>
                         </div>
                     </div>
