@@ -61,14 +61,13 @@ function media_delivery_flow()
             $droneamount = Constants::$DroneCost_MDF;
         }
 
-        $audio_video_fee = $audioamount + $droneamount;
-        error_log($audio_video_fee);
+
 
         $total = totalCalculations($weddingSessionHours,$role);
         error_log($total);
         error_log('travelFeeAmount: ' . $travelFeeAmount);
 
-        $invoice_server_resp = generateInvoicePDF(Constants::$brandName_MDF, $yourName, $payment, $clientNames, $weddingSession, $mediaDelivered, $weddingSessionDate, $weddingSessionHours, $audio_video_fee, $travelFeeAmount, $total, $rawMedia, $specificShots, $specialRequests, $videographerSong, $requestedAudio, $experience, $comments, $startEndTimes);
+        $invoice_server_resp = generateInvoicePDF(Constants::$brandName_MDF, $yourName, $payment, $clientNames, $weddingSession, $mediaDelivered, $weddingSessionDate, $weddingSessionHours, $audioamount, $travelFeeAmount, $total, $rawMedia, $specificShots, $specialRequests, $videographerSong, $requestedAudio, $experience, $comments, $startEndTimes,$droneamount);
 
 
         if (is_null($invoice_server_resp->archivoPDF)) {

@@ -148,7 +148,7 @@
                             </div>
                             <div class="col-6" id="travel-fee-amount-container">
                                 <label class="form-label" for="travel-fee-amount">Whats is the amount?</label>
-                                <input type="number"    class="form-control" id="travel-fee-amount" name="travel-fee-amount">
+                                <input type="number"    class="form-control" id="travel-fee-amount" name="travel-fee-amount" step="any">
                             </div>
                         </div>
 
