@@ -106,12 +106,12 @@ function getRefreshToken($app_key, $app_secret, $access_token, $redirect_uri, $r
     $resp = new stdClass();
     if (is_wp_error($response)) {
         $resp->data = null;
-        $resp->message = $response->get_error_message();
+        $resp->message = "There was an error doing the authentication in dropbox";
         return $resp;
     } else {
         if (!OkCreateResponse_MDF($response)) {
             $resp->data = null;
-            $resp->message = $response->get_error_message();
+            $resp->message = "There was an error doing the authentication in dropbox";
             return $resp;
         }
 

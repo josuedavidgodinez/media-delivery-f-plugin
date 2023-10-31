@@ -73,6 +73,8 @@ function generateInvoicePDF($BrandName, $Name, $BankAccount, $ClientsName, $Even
         $pdf->Cell(10, 20, '', 0, 0, 'L');
         $pdf->Cell(120, 10, 'Requested Audio: ' . $requestedAudio, 0, 1, 'L');
         $pdf->Cell(120, 10, 'Start and End Times: ' . $startEndTimes, 0, 0, 'L');
+        $pdf->Cell(10, 20, '', 0, 0, 'L');
+        $pdf->Cell(120, 10, 'RAW media file uploaded: ' . $rawMedia, 0, 1, 'L');
 
         error_log("Generating invoice final");
 

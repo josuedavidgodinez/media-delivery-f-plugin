@@ -45,7 +45,7 @@ function media_delivery_flow()
         $comments = $_POST['comments'];
 
         $parent_folder_name = 'File Requests';
-        $folder_name = '/' . $parent_folder_name . '/' . $clientNames . " " . $weddingSession . " RAW " . $mediaDelivered;
+        $folder_name = '/' . $parent_folder_name . '/' . $clientNames . " " . $weddingSession . " RAW " . $mediaDelivered . " - " . $yourName;
         $resp_create_fR = createFileRequest($folder_name);
 
         if (is_null($resp_create_fR)) {
