@@ -100,7 +100,7 @@
                     <div class="form-group mb-2 videographer-settings">
                         <label class="form-label" for="audio-vows-speeches">Does the package include Audio of
                             vows/speeches?</label>
-                        <select class="form-select" id="audio-vows-speeches" name="audio-vows-speeches" required>
+                        <select class="form-select" id="audio-vows-speeches" name="audio-vows-speeches">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
